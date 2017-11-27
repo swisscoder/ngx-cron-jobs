@@ -52,7 +52,7 @@ class TestReactiveComponent {
   }
 }
 
-xdescribe('CronJobsComponent', () => {
+fdescribe('CronJobsComponent', () => {
   let testComponent: TestReactiveComponent;
   let testFixture: ComponentFixture<TestReactiveComponent>;
   let component: CronJobsComponent;
