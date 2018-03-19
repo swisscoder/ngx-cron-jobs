@@ -26,8 +26,18 @@ export interface CronJobsFrequency {
 
 export interface CronJobsSelectOption {
   value: number;
+  type?: OptionType;
   label: string | number;
 }
+
+export enum OptionType {
+  minute,
+  hour,
+  day,
+  week,
+  month,
+  year
+  }
 
 export interface CronJobsValidationConfig {
   validate?: boolean;

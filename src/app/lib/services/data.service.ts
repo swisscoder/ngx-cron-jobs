@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { CronJobsConfig, CronJobsSelectOption, CronJobsValidationConfig } from '../contracts/contracts';
+import { CronJobsConfig, CronJobsSelectOption, CronJobsValidationConfig, OptionType } from '../contracts/contracts';
 
 @Injectable()
 export class DataService {
@@ -84,13 +84,13 @@ export class DataService {
   ];
 
   private _baseFrequency: Array<CronJobsSelectOption> = [
-    {value: 0, label: 'Please select'},
-    {value: 1, label: 'Minute'},
-    {value: 2, label: 'Hour'},
-    {value: 3, label: 'Day'},
-    {value: 4, label: 'Week'},
-    {value: 5, label: 'Month'},
-    {value: 6, label: 'Year'}
+    { value: 0, label: 'Please select' },
+    { value: 1, type: OptionType.minute, label: 'Minute' },
+    { value: 2, type: OptionType.hour, label: 'Hour' },
+    { value: 3, type: OptionType.day, label: 'Day' },
+    { value: 4, type: OptionType.week, label: 'Week' },
+    { value: 5, type: OptionType.month, label: 'Month' },
+    { value: 6, type: OptionType.year, label: 'Year' }
   ];
 
   private _hours: Array<CronJobsSelectOption>;
