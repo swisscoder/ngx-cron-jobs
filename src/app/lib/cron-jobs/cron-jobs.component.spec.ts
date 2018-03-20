@@ -294,6 +294,20 @@ describe('CronJobsComponent', () => {
     expect(component.minutesData.length).toBeTruthy();
   }));
 
+  it('should set corect base freq data for select options', fakeAsync(() => {
+
+    testComponent.cronConfig = {
+      ...testComponent.cronConfig,
+      option: { minute: false },
+    };
+
+    testFixture.detectChanges();
+    const expected = ['Please select', 'Hour', 'Day', 'Week', 'Month', 'Year'];
+    tick();
+    expect(Object.values(component.baseFrequencyData).map(x => x.label)).toEqual(expected);
+
+  }));
+
   it('should on init patch cronJobsFrom with default value', fakeAsync(() => {
     testFixture.detectChanges();
     const spy = spyOn(component.cronJobsForm, 'patchValue').and.callThrough();

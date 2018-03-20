@@ -4,7 +4,8 @@ import {
 } from '@angular/core';
 import {
   CronJobsConfig, CronJobsFrequency, CronJobsSelectOption,
-  CronJobsValidationConfig
+  CronJobsValidationConfig,
+  OptionType
 } from '../contracts/contracts';
 import { DataService } from '../services/data.service';
 import { ControlValueAccessor, FormBuilder, FormControl, FormGroup, NG_VALUE_ACCESSOR } from '@angular/forms';
@@ -56,8 +57,8 @@ export class CronJobsComponent implements OnInit, OnChanges, OnDestroy, ControlV
   private cronService: PosixService;
 
   constructor(private dataService: DataService,
-              private injector: Injector,
-              private formBuilder: FormBuilder) {
+    private injector: Injector,
+    private formBuilder: FormBuilder) {
 
     this.cronJobsForm = this.formBuilder.group({
       baseFrequency: 0,
@@ -92,12 +93,20 @@ export class CronJobsComponent implements OnInit, OnChanges, OnDestroy, ControlV
       .subscribe((values: CronJobsFrequency) => {
         if (!values.baseFrequency) {
           values = this.cronService.getDefaultFrequenceWithDefault();
-          this.cronJobsForm.patchValue(values, {emitEvent: false});
+          this.cronJobsForm.patchValue(values, { emitEvent: false });
         }
         this.onChange(this.cronService.setCron(values));
       });
 
-    this.baseFrequencyData = this.dataService.baseFrequency;
+    let baseFreq = this.dataService.baseFrequency;
+
+    if (this.config.option) {
+      baseFreq = baseFreq.filter(x => !(this.config.option.hasOwnProperty(OptionType[x.type])
+        && !this.config.option[OptionType[x.type]])
+      );
+    }
+
+    this.baseFrequencyData = baseFreq;
     this.daysOfMonthData = this.dataService.daysOfMonth;
     this.daysOfWeekData = this.dataService.getDaysOfWeek(false);
     this.monthsData = this.dataService.months;
@@ -122,7 +131,7 @@ export class CronJobsComponent implements OnInit, OnChanges, OnDestroy, ControlV
         if (!changes['config'].previousValue ||
           changes['config'].previousValue['quartz'] !== changes['config'].currentValue['quartz']) {
           this.daysOfWeekData = this.dataService.getDaysOfWeek(this.config.quartz);
-          this.cronJobsForm.patchValue({daysOfWeek: this.daysOfWeekData[0].value});
+          this.cronJobsForm.patchValue({ daysOfWeek: this.daysOfWeekData[0].value });
         }
       });
       this.setService();
