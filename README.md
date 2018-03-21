@@ -60,7 +60,7 @@ This is an object in your controller you can use to remove options from the user
 {
     quartz: true,
     multiple: false,
-    options : {
+    option : {
       minute : false
     }
 }
