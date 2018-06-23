@@ -1,3 +1,5 @@
+
+import {filter, takeUntil, map, publishReplay, refCount} from 'rxjs/operators';
 import {
   Component, forwardRef, Injector, Input, OnChanges, OnDestroy, OnInit,
   SimpleChanges
@@ -9,13 +11,12 @@ import {
 } from '../contracts/contracts';
 import { DataService } from '../services/data.service';
 import { ControlValueAccessor, FormBuilder, FormControl, FormGroup, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { Subject } from 'rxjs/Subject';
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/takeUntil';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/publishReplay';
-import 'rxjs/add/operator/filter';
-import 'rxjs/add/operator/do';
+import { Subject ,  Observable } from 'rxjs';
+
+
+
+
+
 import { PosixService } from '../services/posix.service';
 import { QuartzService } from '../services/quartz.service';
 
@@ -76,20 +77,20 @@ export class CronJobsComponent implements OnInit, OnChanges, OnDestroy, ControlV
 
   ngOnInit() {
     this.baseFrequency$ = this.cronJobsForm.get('baseFrequency')
-      .valueChanges
-      .takeUntil(this.unSubscribe)
-      .map(v => +v)
-      .publishReplay(1)
-      .refCount();
+      .valueChanges.pipe(
+      takeUntil(this.unSubscribe),
+      map(v => +v),
+      publishReplay(1),
+      refCount(), );
 
     this.cronJobsForm
-      .valueChanges
-      .takeUntil(this.unSubscribe)
-      .filter(() => !this.isPatching)
-      .map((freq: CronJobsFrequency) => {
+      .valueChanges.pipe(
+      takeUntil(this.unSubscribe),
+      filter(() => !this.isPatching),
+      map((freq: CronJobsFrequency) => {
         freq.baseFrequency = +freq.baseFrequency;
         return freq;
-      })
+      }), )
       .subscribe((values: CronJobsFrequency) => {
         if (!values.baseFrequency) {
           values = this.cronService.getDefaultFrequenceWithDefault();
