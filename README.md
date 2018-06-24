@@ -50,24 +50,31 @@ Once your library is imported, you can use its components, directives and pipes 
 
 ## Configuration:
 
-The component takes an attribute of `config`
+The component takes an input of `[config]` and `[validate]`
 
 ### Options
+Plugin maybe configured by config object to which should be pass in `[config]` input.
 
-This is an object in your controller you can use to remove options from the user. For example if you would like the user to be able to set Minute, Hour, and Day but not Week, Month, and Year you would create the following object in your controller:
+List of options:
 
-```json
-{
-    quartz: true,
-    multiple: false,
-    option : {
-      minute : false
-    }
-}
-```
+Option | Type | Description
+-------|------|------------
+quartz | boolean (false)| Use quartz syntax rather then cron syntax in control output
+multiple | boolean (false)| Enable multi select in plugin selects
+bootstrap | boolean (true) | Use bootstrap 4 html and css classes to build plugin forms 
+option | object | Additional options
+option.minute | boolean (true) | remove (false) or add minute to plugin select to control user ability to set cron expression.
+option.hour | boolean (true) | remove (false) or add hour to plugin select to control user ability to set cron expression.
+option.day | boolean (true) | remove (false) or add day to plugin select to control user ability to set cron expression.
+option.week | boolean (true) | remove (false) or add week to plugin select to control user ability to set cron expression.
+option.month | boolean (true) | remove (false) or add month to plugin select to control user ability to set cron expression.
+option.year | boolean (true) | remove (false) or add year to plugin select to control user ability to set cron expression.
 
-## Development
+Additional to this plugin supports validation config (`[validate]` input):
 
+Option | Type | Description
+-------|------|------------
+validate | boolean (false)| Add validation classes if controls are invalid.
 
 ## License
 
