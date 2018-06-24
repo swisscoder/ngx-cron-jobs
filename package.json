@@ -1,12 +1,12 @@
 {
   "name": "ngx-cron-jobs",
-  "version": "0.4.9",
+  "version": "6.4.9",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "start:no-sm": "ng serve --source-map=false",
-    "build:docs": "ng build --prod -op ./docs --base-href /ngx-cron-jobs/",
+    "build:docs": "ng build --prod --output-path ./docs --base-href /ngx-cron-jobs/",
     "build:prod": "ng build --prod ",
     "test": "ng test --source-map=false",
     "lint": "ng lint",
