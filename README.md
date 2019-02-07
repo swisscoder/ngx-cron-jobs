@@ -28,6 +28,18 @@ $ yarn add ngx-cron-jobs@6.x.x
 
 where x.x is 4.9. Is should look like this 0.4.9. Line for Angular 6 will have major set to 6.
 
+To install this library for Angular 7, run:
+
+```bash
+$ npm install ngx-cron-jobs@7.x.x  --save
+```
+
+```bash
+$ yarn add ngx-cron-jobs@7.x.x
+```
+
+where x.x is 2.4. Is should look like this 7.2.4 Line for Angular 6 will have major set to 6.
+
 ## Consuming your library
 
 

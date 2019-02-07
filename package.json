@@ -1,6 +1,6 @@
 {
   "name": "ngx-cron-jobs",
-  "version": "6.4.9",
+  "version": "7.2.4",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
