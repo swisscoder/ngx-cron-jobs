@@ -14,83 +14,87 @@ export class DataService {
     validate: false,
   };
 
+  // need to check if Monday is 0, for German cron jobs
   private daysOfWeekPosix: Array<CronJobsSelectOption> = [
-    {value: 0, label: 'Sunday'},
-    {value: 1, label: 'Monday'},
-    {value: 2, label: 'Tuesday'},
-    {value: 3, label: 'Wednesday'},
-    {value: 4, label: 'Thursday'},
-    {value: 5, label: 'Friday'},
-    {value: 6, label: 'Saturday'}
+    {value: 0, label: 'Sonntag'},
+    {value: 1, label: 'Montag'},
+    {value: 2, label: 'Dienstag'},
+    {value: 3, label: 'Mittwoch'},
+    {value: 4, label: 'Donnerstag'},
+    {value: 5, label: 'Freitag'},
+    {value: 6, label: 'Samstag'}
   ];
 
+  // need to check if Sunday is 1, for German cron jobs
   private daysOfWeekQuartz: Array<CronJobsSelectOption> = [
-    {value: 1, label: 'Sunday'},
-    {value: 2, label: 'Monday'},
-    {value: 3, label: 'Tuesday'},
-    {value: 4, label: 'Wednesday'},
-    {value: 5, label: 'Thursday'},
-    {value: 6, label: 'Friday'},
-    {value: 7, label: 'Saturday'}
+    {value: 1, label: 'Sonntag'},
+    {value: 2, label: 'Montag'},
+    {value: 3, label: 'Dienstag'},
+    {value: 4, label: 'Mittwoch'},
+    {value: 5, label: 'Donnerstag'},
+    {value: 6, label: 'Freitag'},
+    {value: 7, label: 'Samstag'}
   ];
 
   private numeral: Array<CronJobsSelectOption> = [
-    {value: 1, label: '1st'},
-    {value: 2, label: '2nd'},
-    {value: 3, label: '3rd'},
-    {value: 4, label: '4th'},
-    {value: 5, label: '5th'},
-    {value: 6, label: '6th'},
-    {value: 7, label: '7th'},
-    {value: 8, label: '8th'},
-    {value: 9, label: '9th'},
-    {value: 10, label: '10th'},
-    {value: 11, label: '11th'},
-    {value: 12, label: '12th'},
-    {value: 13, label: '13th'},
-    {value: 14, label: '14th'},
-    {value: 15, label: '15th'},
-    {value: 16, label: '16th'},
-    {value: 17, label: '17th'},
-    {value: 18, label: '18th'},
-    {value: 19, label: '19th'},
-    {value: 20, label: '20th'},
-    {value: 21, label: '21st'},
-    {value: 22, label: '22nd'},
-    {value: 23, label: '23rd'},
-    {value: 24, label: '24th'},
-    {value: 25, label: '25th'},
-    {value: 26, label: '26th'},
-    {value: 27, label: '27th'},
-    {value: 28, label: '28th'},
-    {value: 29, label: '29th'},
-    {value: 30, label: '30th'},
-    {value: 31, label: '31st'}
+    {value: 1, label: '1.'},
+    {value: 2, label: '2.'},
+    {value: 3, label: '3.'},
+    {value: 4, label: '4.'},
+    {value: 5, label: '5.'},
+    {value: 6, label: '6.'},
+    {value: 7, label: '7.'},
+    {value: 8, label: '8.'},
+    {value: 9, label: '9.'},
+    {value: 10, label: '10.'},
+    {value: 11, label: '11.'},
+    {value: 12, label: '12.'},
+    {value: 13, label: '13.'},
+    {value: 14, label: '14.'},
+    {value: 15, label: '15.'},
+    {value: 16, label: '16.'},
+    {value: 17, label: '17.'},
+    {value: 18, label: '18.'},
+    {value: 19, label: '19.'},
+    {value: 20, label: '20.'},
+    {value: 21, label: '21.'},
+    {value: 22, label: '22.'},
+    {value: 23, label: '23.'},
+    {value: 24, label: '24.'},
+    {value: 25, label: '25.'},
+    {value: 26, label: '26.'},
+    {value: 27, label: '27.'},
+    {value: 28, label: '28.'},
+    {value: 29, label: '29.'},
+    {value: 30, label: '30.'},
+    {value: 31, label: '31.'}
   ];
 
+  // assuming Umlauts are no problem
   private _months: Array<CronJobsSelectOption> = [
-    {value: 1, label: 'January'},
-    {value: 2, label: 'February'},
-    {value: 3, label: 'March'},
+    {value: 1, label: 'Januar'},
+    {value: 2, label: 'Februar'},
+    {value: 3, label: 'März'},
     {value: 4, label: 'April'},
-    {value: 5, label: 'May'},
-    {value: 6, label: 'June'},
+    {value: 5, label: 'Mai'},
+    {value: 6, label: 'Juni'},
     {value: 7, label: 'July'},
     {value: 8, label: 'August'},
     {value: 9, label: 'September'},
-    {value: 10, label: 'October'},
+    {value: 10, label: 'Oktober'},
     {value: 11, label: 'November'},
-    {value: 12, label: 'December'}
+    {value: 12, label: 'Dezember'}
   ];
 
+  // assuming Umlauts are no problem
   private _baseFrequency: Array<CronJobsSelectOption> = [
-    { value: 0, label: 'Please select' },
+    { value: 0, label: 'Bitte auswählen' },
     { value: 1, type: OptionType.minute, label: 'Minute' },
-    { value: 2, type: OptionType.hour, label: 'Hour' },
-    { value: 3, type: OptionType.day, label: 'Day' },
-    { value: 4, type: OptionType.week, label: 'Week' },
-    { value: 5, type: OptionType.month, label: 'Month' },
-    { value: 6, type: OptionType.year, label: 'Year' }
+    { value: 2, type: OptionType.hour, label: 'Stunde' },
+    { value: 3, type: OptionType.day, label: 'Tag' },
+    { value: 4, type: OptionType.week, label: 'Woche' },
+    { value: 5, type: OptionType.month, label: 'Monat' },
+    { value: 6, type: OptionType.year, label: 'Jahr' }
   ];
 
   private _hours: Array<CronJobsSelectOption>;
