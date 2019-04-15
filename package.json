@@ -1,12 +1,12 @@
 {
-  "name": "ngx-cron-jobs",
+  "name": "ngx-cron-jobs-german",
   "version": "7.2.4",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "start:no-sm": "ng serve --source-map=false",
-    "build:docs": "ng build --prod --output-path ./docs --base-href /ngx-cron-jobs/",
+    "build:docs": "ng build --prod --output-path ./docs --base-href /ngx-cron-jobs-german/",
     "build:prod": "ng build --prod ",
     "test": "ng test --source-map=false",
     "lint": "ng lint",
@@ -15,16 +15,21 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/yp2/ngx-cron-jobs"
+    "url": "https://github.com/swisscoder/ngx-cron-jobs-german"
   },
   "bugs": {
-    "url": "https://github.com/yp2/ngx-cron-jobs/issues"
+    "url": "https://github.com/swisscoder/ngx-cron-jobs-german/issues"
   },
-  "author": {
-    "name": "Daniel 'yp2' Dereziński",
-    "email": "daniel.derezinski@gmail.com"
+  "author": 
+  {
+    "name": "Ste 'swisscoder' G.",
+    "email": "swisscoder@gmail.com"
   },
   "contributors": [
+    {
+      "name": "Daniel 'yp2' Dereziński",
+      "email": "daniel.derezinski@gmail.com"
+    },
     {
       "name": "Randall Valenciano Fallas",
       "email": "ravf.226@gmail.com"

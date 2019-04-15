@@ -9,11 +9,11 @@ Angular > 2 version of angular-cron-jobs (http://angular-cron-jobs.github.io/ang
 To install this library for Angular 5, run:
 
 ```bash
-$ npm install ngx-cron-jobs@0.x.x  --save
+$ npm install ngx-cron-jobs-german@0.x.x  --save
 ```
 
 ```bash
-$ yarn add ngx-cron-jobs@0.x.x
+$ yarn add ngx-cron-jobs-german@0.x.x
 ```
 
 where x.x is 4.9. Is should look like this 0.4.9. Line for Angular 5 will have major set to 0.
@@ -21,11 +21,11 @@ where x.x is 4.9. Is should look like this 0.4.9. Line for Angular 5 will have m
 To install this library for Angular 6, run:
 
 ```bash
-$ npm install ngx-cron-jobs@6.x.x  --save
+$ npm install ngx-cron-jobs-german@6.x.x  --save
 ```
 
 ```bash
-$ yarn add ngx-cron-jobs@6.x.x
+$ yarn add ngx-cron-jobs-german@6.x.x
 ```
 
 where x.x is 4.9. Is should look like this 0.4.9. Line for Angular 6 will have major set to 6.
@@ -33,11 +33,11 @@ where x.x is 4.9. Is should look like this 0.4.9. Line for Angular 6 will have m
 To install this library for Angular 7, run:
 
 ```bash
-$ npm install ngx-cron-jobs@7.x.x  --save
+$ npm install ngx-cron-jobs-german@7.x.x  --save
 ```
 
 ```bash
-$ yarn add ngx-cron-jobs@7.x.x
+$ yarn add ngx-cron-jobs-german@7.x.x
 ```
 
 where x.x is 2.4. Is should look like this 7.2.4 Line for Angular 6 will have major set to 6.
@@ -48,7 +48,7 @@ where x.x is 2.4. Is should look like this 7.2.4 Line for Angular 6 will have ma
 and then from your Angular `AppModule`:
 
 ```typescript
-import { CronJobsModule } from 'ngx-cron-jobs';
+import { CronJobsModule } from 'ngx-cron-jobs-german';
 
 @NgModule({
   imports: [

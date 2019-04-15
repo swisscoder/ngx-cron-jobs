@@ -9,6 +9,6 @@ describe('angular2-cron-jobs App', () => {
 
   it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('Demo ngx-cron-jobs');
+    expect(page.getParagraphText()).toEqual('Demo ngx-cron-jobs-german');
   });
 });
