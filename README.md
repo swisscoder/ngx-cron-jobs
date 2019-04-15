@@ -1,4 +1,6 @@
-# ngx-cron-jobs
+# ngx-cron-jobs-german
+
+It's ngx-cron-jobs with some translated strings...
 
 Angular > 2 version of angular-cron-jobs (http://angular-cron-jobs.github.io/angular-cron-jobs)
 
